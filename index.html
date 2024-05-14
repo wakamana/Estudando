@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial scale1.0">
+    <title>Formulário de Cadastro</title>
+    <script>
+        function validarFormulario(){
+            var nome = document.getElementById("nome").value;
+            var endereco = document.getElementById("endereco").value;
+            var telefone = document.getElementById("telefone").value;
+            var data = document.getElementById("data").value;
+            var sexo = document.querySelector('input[name="sexo"]:checked');
+            if (nome === '' || endereco === '' || telefone === '' || data === '' || sexo === null){
+                alert("Por favor, preencha todos os campos.");
+                return false;
+
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Formulário de cadastro</h1>
+    <form onsubmit="return validarFormulario()"method="post">
+        <label for="nome"> Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required><br><br>
+        <label for="telefone">telefone:</label>
+        <input type="text" id="telefone" name="telefone" maxlength="15" placeholder="(00) 00000-0000" required><br><br>
+        <label for="data">Data de Nascimento:</label>
+        <input type="text" id="data" name="data" maxlength="10" placeholder="dd/mm/aaaa" required><br><br>
+        <label for="sexo">Sexo:</label>
+        <input type="radio" id="masculino" name="sexo" value="masculino" required>
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="feminino" name="sexo" value="feminino" required>
+        <label for="feminino">Feminino</label><br><br>
+    </form>
+</body>
+</html>
